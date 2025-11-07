@@ -1,0 +1,208 @@
+/* Basic CSS file - minimal sensible defaults */
+
+/* Reset / sensible defaults */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui;
+    margin-inline: auto;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    margin-inline: auto;
+}
+
+.grid-wrapper {
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 40rem) {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    @media (max-width: 649px) {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+.grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-items: stretch;
+}
+
+.grid.no-gap {
+    gap: 0;
+}
+
+.grid.cols-8-4 {
+    grid-template-columns: 2fr 1fr;
+}
+.grid.cols-9-3 {
+    grid-template-columns: 3fr 1fr;
+}
+.grid.cols-7-5 {
+    grid-template-columns: 3fr 2fr;
+}
+.grid.cols-6-6 {
+    grid-template-columns: 1fr 1fr;
+}
+.grid.cols-5-7 {
+    grid-template-columns: 2fr 3fr;
+}
+.grid.cols-4-8 {
+    grid-template-columns: 1fr 2fr;
+}
+.grid.cols-3-9 {
+    grid-template-columns: 1fr 3fr;
+}
+
+.grid.centered {
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+@media (max-width: 1024px) {
+    .grid.cols-8-4 {
+        grid-template-columns: 3fr 2fr;
+    }
+    .grid.cols-9-3 {
+        grid-template-columns: 2fr 1fr;
+    }
+    .grid.cols-7-5 {
+        grid-template-columns: 3fr 2fr;
+    }
+    .grid.cols-6-6 {
+        grid-template-columns: 1fr 1fr;
+    }
+    .grid.cols-5-7 {
+        grid-template-columns: 2fr 3fr;
+    }
+    .grid.cols-4-8 {
+        grid-template-columns: 2fr 3fr;
+    }
+    .grid.cols-3-9 {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media (max-width: 649px) {
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.card-row {
+    display: grid; /* establish grid context */
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    ); /*setting the columns to auto fit viewport and wrap when the grid items get small enough*/
+    gap: 1rem; /* column gap */
+    justify-items: center;
+}
+
+.card-row.fit-auto {
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    ); /*setting the columns to auto fit viewport and wrap when the grid items get small enough*/
+}
+.box {
+    border: 1px dotted #cccccc;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.box.col-1 {
+    grid-column: span 1;
+}
+
+.box.col-2 {
+    grid-column: span 2;
+}
+
+.subgrid {
+    display: grid;
+    grid-template-rows: subgrid; /* Make box (grid item) a subgrid (one column) to inherit parent grid properties */
+}
+
+.subgrid.span-3 {
+    grid-row: span 3;
+}
+
+.margin-top {
+    margin-top: 30px;
+}
+
+.margin-top-2x {
+    margin-top: 60px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.card .card-content {
+    text-align: center;
+    padding: 15px 30px;
+}
+
+.callout {
+    background-color: burlywood;
+    border: 1px solid gray;
+    border-radius: 6px;
+    padding: 15px 30px;
+}
+
+.callout.white {
+    background-color: #cccccc;
+    color: black;
+}
+
+.text-center {
+    text-align: center;
+}
+
+section.bleed {
+    background-color: rgb(36, 70, 129);
+    color: white;
+    padding: 30px 15px;
+}
+
+section.roomy {
+    padding: 30px 0px;
+}
+
+header {
+    background-color: grey;
+    padding: 15px;
+    width: 100%;
+}
+
+footer {
+    background-color: grey;
+    padding: 15px;
+    width: 100%;
+}
+
+.hero {
+    height: auto;
+    background-color: brown;
+    padding: 90px 30px;
+}
+
+h2.big {
+    font-size: 38px;
+}
